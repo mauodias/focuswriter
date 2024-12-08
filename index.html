@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Matrix</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        textarea {
+            font-family: courier;
+            font-size: 1em;
+            line-height: 1em;
+            background: #000;
+            color: #3a3;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            margin: 0;
+            padding: 90px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="editor" autofocus placeholder="wake up Neo..."></textarea>
+    <script>
+        const editor = document.getElementById('editor');
+
+        // Load saved content from local storage
+        editor.value = localStorage.getItem('editorContent') || '';
+
+        // Update local storage in real time
+        editor.addEventListener('input', () => {
+            localStorage.setItem('editorContent', editor.value);
+        });
+    </script>
+</body>
+</html>
